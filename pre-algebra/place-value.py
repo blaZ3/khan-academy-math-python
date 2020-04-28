@@ -2,16 +2,17 @@ print("Pre algebra - Finding place value")
 
 print("1. Find place value")
 print("2. Split into face values")
+print("3. Expand a number")
 
 option = input("Enter an option:")
 
 places = {
-	1: "Ones",
-	2: "Tens",
-	3: "Hundreds",
-	4: "Thousands",
-	5: "Ten Thousands",
-	6: "Hundred Thousands"
+	0: "Ones",
+	1: "Tens",
+	2: "Hundreds",
+	3: "Thousands",
+	4: "Ten Thousands",
+	5: "Hundred Thousands"
 }
 
 
@@ -27,11 +28,11 @@ def find_place_value():
 
 	place = 0
 
-	while number > 0:	
-		place += 1
+	while number > 0:			
 		if number % 10 == digit:
 			print(places[place])
 			break
+		place += 1
 		number = int(number / 10)
 
 
@@ -45,9 +46,21 @@ def split_to_face_values():
 
 	place = 0
 
-	while number > 0:
-		place += 1
+	while number > 0:		
 		print(f"{int(number%10)} {places[place]}")
+		place += 1
+		number = int(number / 10)
+
+
+def expand_a_number():
+	number = input("Enter a number:")
+	number = int(number)
+
+	place = 0
+
+	while number >0:
+		print(number%10 * 10 ** place)
+		place += 1
 		number = int(number / 10)
 
 
@@ -55,6 +68,7 @@ if option == "1":
 	find_place_value()
 elif option == "2":
 	split_to_face_values()
+elif option == "3":
+	expand_a_number()
 else: print("Invalid option!")
-
 
